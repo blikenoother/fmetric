@@ -19,7 +19,7 @@ nohup python fetchdata.py ACCESS_TOKEN PAGE_ID POST_COUNT &
 
 Description:
 
-`ACCESS_TOKEN` valide facebook app access token (you can get access token at [developers.facebook.com](https://developers.facebook.com/tools/explorer))
+`ACCESS_TOKEN` valide facebook app access token (you can get access token at [developers.facebook.com](https://developers.facebook.com/tools/explorer))  
 `PAGE_ID` facebook page id (to get page id, http://graph.facebook.com/PAGE_NAME)  
 `POST_COUNT` number of posts to read  
 `&` to run python script in background
