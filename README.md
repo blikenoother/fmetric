@@ -44,4 +44,4 @@ You can edit points allocation at line number 4 (`points = {'post': 3, 'commnet'
 
 You can check logs or any error in nohup.out which will be generated when you execute the script.
 
-Copyright (c) 2013, Chirag (blikenoother -[at]- gmail [dot] com)
+Chirag (blikenoother -[at]- gmail [dot] com)
