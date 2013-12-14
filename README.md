@@ -32,4 +32,12 @@ nohup python fetchdata.py XXXXXXXX 20531316728 50 &
 
 It will generate a csv file with page id, like 20531316728.csv for above example
 
+Score detail:
+
+1 point for like on post
+2 point for writing comment on post
+3 point for writing post
+
+You can edit points allocation at line number 4 (`points = {'post': 3, 'commnet': 2, 'like': 1}`) in fetchdata.py
+
 Copyright (c) 2013, Chirag (blikenoother -[at]- gmail [dot] com)
