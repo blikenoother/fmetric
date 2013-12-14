@@ -69,6 +69,9 @@ for like in likes:
     score = userData.get(id, 0) + points.get('like')
     userData[id] = score
 
+# remove pageId interaction
+userData.pop(pageId, None)
+
 # sort data according to score
 userData = sorted(userData.iteritems(), key=operator.itemgetter(1))
 userData.reverse()
