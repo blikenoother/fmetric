@@ -4,7 +4,7 @@ fmetric is a python script to fetch facebook users who interacts with facebook p
 This sciprt reads all public post including comment on post and like via graph api.
 It will generate csv file which includs user id and score of interaction.
 
-## Usage
+# Usage
 
 First, download source code:
 
@@ -26,12 +26,12 @@ nohup python fetchdata.py ACCESS_TOKEN PAGE_ID POST_COUNT &
 
 Description:
 
-`ACCESS_TOKEN` valide facebook app access token (this is not app secret, its a token when a user
-permits app)
+`ACCESS_TOKEN` valide facebook app access token (you can get access token at [developers.facebook.com](https://developers.facebook.com/tools/explorer))
 `PAGE_ID` facebook page id (to get page id, http://graph.facebook.com/PAGE_NAME)
 `POST_COUNT` number of posts to read
+`&` to run python script in background
 
-Example to read 50 post and get user id detail for facebook page:
+Example to read 50 post and get engaged user id for http://facebook.com/facebook page:
 
 ```html
 nohup python fetchdata.py XXXXXXXX 20531316728 50 &
