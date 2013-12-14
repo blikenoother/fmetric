@@ -1,4 +1,4 @@
-import sys, helper, csv, time
+import sys, helper, csv, time, operator
 
 apiUrl = 'https://graph.facebook.com/'
 points = {'post': 3, 'commnet': 2, 'like': 1}
@@ -65,13 +65,17 @@ for comment in comments:
     userData[id] = score
 
 for like in likes:
-    id = comment.get('id')
+    id = like.get('id')
     score = userData.get(id, 0) + points.get('like')
     userData[id] = score
-users = [{'id': k, 'score': v} for k, v in userData.items()]
+
+# sort data according to score
+userData = sorted(userData.iteritems(), key=operator.itemgetter(1))
+userData.reverse()
+
 print '(%s) Set Score for User [end]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 
-print 'Total User:',len(users)
+print 'Total User:',len(userData)
 
 print '(%s) Writing CSV file [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 fieldnames = ['id', 'score']
@@ -79,7 +83,7 @@ fileName = pageId+'.csv'
 dataFile = open(fileName,'wb')
 csvwriter = csv.DictWriter(dataFile, delimiter=',', fieldnames=fieldnames)
 csvwriter.writerow(dict((fn,fn) for fn in fieldnames))
-for row in users:
-     csvwriter.writerow(row)
+for user in userData:
+     csvwriter.writerow({'id': user[0], 'score': user[1]})
 dataFile.close()
 print '(%s) Writing CSV file [end]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
