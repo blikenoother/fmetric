@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import sys, helper, csv, time
 
 apiUrl = 'https://graph.facebook.com/'
