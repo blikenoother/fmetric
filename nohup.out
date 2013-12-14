@@ -1,4 +1,0 @@
-  File "fetchdata.py", line 5
-    print '(%d) Reading page Feed ', %(time.strftime('%Y-%m-%d %H:%M'))
-                                     ^
-SyntaxError: invalid syntax

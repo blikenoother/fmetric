@@ -43,11 +43,16 @@ if not content.get('id'):
 print '(%s) Page Feed Fetch [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 url = apiUrl+pageId+'/feed?access_token='+accessToken
 posts =  helper.readFeed(url, postCount)
+
 print '(%s) Page Feed Fetch [done]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 
-print '(%s) Post Comment and Like Fetch [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
+print '(%s) Post\'s Comment and Like Fetch [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 comments, likes = helper.getPostDetails(posts)
-print '(%s) Post Comment and Like Fetch [done]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
+print '(%s) Post\'s Comment and Like Fetch [done]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
+
+print 'Total Post:',len(posts)
+print 'Total Comment:',len(comments)
+print 'Total Like:',len(likes)
 
 print '(%s) Set Score for User [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 userData = {}
@@ -67,6 +72,8 @@ for like in likes:
     userData[id] = score
 users = [{'id': k, 'score': v} for k, v in userData.items()]
 print '(%s) Set Score for User [end]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
+
+print 'Total User:',len(users)
 
 print '(%s) Writing CSV file [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 fieldnames = ['id', 'score']
