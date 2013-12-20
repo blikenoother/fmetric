@@ -34,7 +34,7 @@ if not content.get('id'):
 # validate pageId
 url = apiUrl+pageId
 content = helper.httpReq(url)
-if not content.get('id') or content.get('username'):
+if not content.get('id') or not content.get('username'):
     print 'Invalid pageId:',pageId
     sys.exit()
 
