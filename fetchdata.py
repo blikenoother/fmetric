@@ -16,6 +16,7 @@ if argCount < 4:
 accessToken = sys.argv[1]
 
 pageId = sys.argv[2]
+pageName = ''
 
 try:
     postCount = int(sys.argv[3])
@@ -33,9 +34,12 @@ if not content.get('id'):
 # validate pageId
 url = apiUrl+pageId
 content = helper.httpReq(url)
-if not content.get('id'):
+if not content.get('id') or content.get('username'):
     print 'Invalid pageId:',pageId
     sys.exit()
+
+pageId = content.get('id')
+pageName = content.get('username')
 
 # read page feed
 print '(%s) Page Feed Fetch [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
@@ -82,7 +86,7 @@ print 'Total User:',len(userData)
 
 print '(%s) Writing CSV file [start]' %(time.strftime('%Y-%m-%d %H:%M:%S'))
 fieldnames = ['id', 'score']
-fileName = pageId+'.csv'
+fileName = pageName+'.csv'
 dataFile = open(fileName,'wb')
 csvwriter = csv.DictWriter(dataFile, delimiter=',', fieldnames=fieldnames)
 csvwriter.writerow(dict((fn,fn) for fn in fieldnames))
